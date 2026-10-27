@@ -1,28 +1,76 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio | Redes e Desenvolvimento</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0f19;
+      color: #e5e7eb;
+    }
+    header {
+      padding: 60px 20px;
+      text-align: center;
+      background: #111827;
+      border-bottom: 1px solid #243247;
+    }
+    h1 { color: #22d3ee; }
+    p { line-height: 1.7; color: #aebbd0; }
+    main { max-width: 1000px; margin: auto; padding: 32px 20px; }
+    .card {
+      background: #161f33;
+      border: 1px solid #29364d;
+      padding: 24px;
+      border-radius: 14px;
+      margin-bottom: 20px;
+    }
+    .tag { color: #22d3ee; font-size: 14px; }
+    a { color: #38bdf8; }
+    footer { text-align: center; padding: 30px; color: #94a3b8; }
+  </style>
 </head>
 <body>
-    <header>
-         <nav>
-            <ul>
-                <li><a href=""></a></li>
-                <li><a href=""></a></li>
-                <li><a href=""></a></li>
-                <li><a href=""></a></li>
-           </ul>
-        </nav>
-    </header>
+  <header>
+    <h1>Redes & Desenvolvimento de Software</h1>
+    <p>Ciência da Computação | Automação | Infraestrutura</p>
+    <a href="https://github.com/rodrigolf3">Meu GitHub</a>
+  </header>
 
-     <section>
-            <h2>maneiro</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, esse.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident, deserunt.</p>
-    </section>
-        
+  <main>
+    <h2>Sobre mim</h2>
+    <p>
+      Estudante de Ciência da Computação com foco em
+      desenvolvimento de software, infraestrutura de redes
+      e automação de processos técnicos.
+    </p>
 
+    <h2>Projetos</h2>
+    <div class="card">
+      <h3>Central de Provisioning</h3>
+      <p>
+        Aplicação de apoio ao provisionamento de redes,
+        com fluxos de VLAN, BGP, QoS e alocação de portas.
+      </p>
+      <span class="tag">HTML • CSS • JavaScript • Redes</span>
+      <p>
+        <a href="https://github.com/rodrigolf3/projeto.html">
+          Ver repositório
+        </a>
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Calculadora IPv4</h3>
+      <p>Projeto planejado para cálculos de sub-redes e CIDR.</p>
+      <span class="tag">Em planejamento</span>
+    </div>
+  </main>
+
+  <footer>Portfólio de Redes e Desenvolvimento</footer>
 </body>
 </html>
