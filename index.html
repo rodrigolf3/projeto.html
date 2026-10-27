@@ -2,75 +2,509 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfólio | Redes e Desenvolvimento</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b0f19;
-      color: #e5e7eb;
-    }
-    header {
-      padding: 60px 20px;
-      text-align: center;
-      background: #111827;
-      border-bottom: 1px solid #243247;
-    }
-    h1 { color: #22d3ee; }
-    p { line-height: 1.7; color: #aebbd0; }
-    main { max-width: 1000px; margin: auto; padding: 32px 20px; }
-    .card {
-      background: #161f33;
-      border: 1px solid #29364d;
-      padding: 24px;
-      border-radius: 14px;
-      margin-bottom: 20px;
-    }
-    .tag { color: #22d3ee; font-size: 14px; }
-    a { color: #38bdf8; }
-    footer { text-align: center; padding: 30px; color: #94a3b8; }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Redes & Desenvolvimento de Software</h1>
-    <p>Ciência da Computação | Automação | Infraestrutura</p>
-    <a href="https://github.com/rodrigolf3">Meu GitHub</a>
-  </header>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfólio de desenvolvimento de software, redes e automação de infraestrutura.">
+<title>Rodrigo | Software & Network Automation</title>
 
-  <main>
-    <h2>Sobre mim</h2>
-    <p>
-      Estudante de Ciência da Computação com foco em
-      desenvolvimento de software, infraestrutura de redes
-      e automação de processos técnicos.
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #090d16;
+  --panel: #111827;
+  --line: #25324a;
+  --txt: #eaf3ff;
+  --muted: #9caec5;
+  --cyan: #22d3ee;
+  --violet: #a78bfa;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 85% 5%, #17264b 0, transparent 38%),
+    radial-gradient(ellipse at 15% 30%, #24173e 0, transparent 36%),
+    var(--bg);
+  color: var(--txt);
+  font: 16px/1.65 system-ui, -apple-system, Segoe UI, sans-serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(#ffffff06 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff06 1px, transparent 1px);
+  background-size: 45px 45px;
+  mask-image: linear-gradient(to bottom, #0008, transparent 85%);
+}
+
+a { color: inherit; text-decoration: none; }
+
+a:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
+}
+
+.wrap {
+  width: min(1120px, calc(100% - 40px));
+  margin: auto;
+}
+
+.top {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(18px);
+  background: #090d16dd;
+  border-bottom: 1px solid #ffffff14;
+}
+
+.nav {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  font-weight: 850;
+  letter-spacing: .03em;
+}
+
+.brand b { color: var(--cyan); }
+
+.links {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.links a:hover { color: var(--cyan); }
+
+.hero {
+  padding: 110px 0 85px;
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 38px;
+  align-items: center;
+}
+
+.eyebrow {
+  color: var(--cyan);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 5.5vw, 72px);
+  line-height: 1.09;
+  letter-spacing: -.055em;
+  margin: 16px 0 22px;
+}
+
+.gradient {
+  background: linear-gradient(95deg, var(--cyan), #9a8cff);
+  color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+  max-width: 600px;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 750;
+  font-size: 14px;
+  border: 1px solid #4c6078;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.btn:hover { transform: translateY(-3px); }
+
+.primary {
+  background: linear-gradient(100deg, #22d3ee, #0ea5e9);
+  border-color: transparent;
+  color: #05111c;
+  box-shadow: 0 8px 28px #06b6d42b;
+}
+
+.terminal {
+  border: 1px solid #3b536f;
+  border-radius: 18px;
+  background: #0c1525e8;
+  box-shadow: 0 24px 90px #0009, 0 0 50px #06b6d412;
+  overflow: hidden;
+  transform: rotate(1deg);
+}
+
+.termbar {
+  display: flex;
+  gap: 7px;
+  padding: 14px 18px;
+  border-bottom: 1px solid #24354e;
+  background: #111c2d;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #fb7185;
+}
+
+.dot:nth-child(2) { background: #fbbf24; }
+.dot:nth-child(3) { background: #34d399; }
+
+.termtext {
+  padding: 25px;
+  font: 13px/2 Consolas, monospace;
+  color: #a6bad5;
+}
+
+.ok { color: #5eead4; }
+.purple { color: #c4b5fd; }
+.dim { color: #6e85a5; }
+
+.section { padding: 42px 0 58px; }
+
+.section h2 {
+  font-size: clamp(26px, 3vw, 36px);
+  margin: 8px 0 12px;
+  letter-spacing: -.03em;
+}
+
+.lead {
+  color: var(--muted);
+  max-width: 720px;
+  margin-bottom: 26px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.card {
+  border: 1px solid var(--line);
+  background: #111827c9;
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
+  padding: 25px;
+  min-width: 0;
+  transition: transform .2s, border-color .2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #3d8fa7;
+}
+
+.card h3 {
+  font-size: 19px;
+  margin: 10px 0;
+}
+
+.card p {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0 0 20px;
+}
+
+.symbol { font-size: 27px; }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.tag {
+  font-size: 11px;
+  border: 1px solid #31506b;
+  background: #14243a;
+  padding: 4px 9px;
+  border-radius: 6px;
+  color: #9ddfee;
+}
+
+.status {
+  font-size: 11px;
+  color: #fbbf24;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+}
+
+.feature {
+  border-color: #2c748c;
+  background: linear-gradient(155deg, #123047ad, #151c34cb);
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.skill {
+  padding: 14px 16px;
+  background: #141f31;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+footer {
+  margin-top: 50px;
+  border-top: 1px solid var(--line);
+  padding: 25px 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 850px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 70px 0 45px;
+  }
+  .terminal { transform: none; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .about { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .wrap { width: calc(100% - 28px); }
+  .nav { min-height: 62px; }
+  .links { gap: 12px; font-size: 12px; }
+  .links a:nth-child(2) { display: none; }
+  .hero { padding: 60px 0 25px; }
+  .grid { grid-template-columns: 1fr; }
+  .card { padding: 20px; }
+  .termtext { font-size: 11px; padding: 18px; }
+  .skills { grid-template-columns: 1fr; }
+  .section { padding: 35px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="top">
+  <nav class="wrap nav" aria-label="Navegação principal">
+    <a class="brand" href="#inicio">
+      RL<span style="color:#22d3ee">.</span>
+      <b>/ PORTFOLIO</b>
+    </a>
+    <div class="links">
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#tecnologias">Tecnologias</a>
+      <a href="https://github.com/rodrigolf3" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="wrap hero" id="inicio">
+    <div>
+      <div class="eyebrow">Software development · Network engineering</div>
+      <h1>
+        Desenvolvendo soluções para
+        <span class="gradient">redes e software.</span>
+      </h1>
+      <p>
+        Sou Rodrigo, estudante de Ciência da Computação
+        com foco em desenvolvimento de aplicações,
+        infraestrutura de redes e automação de processos técnicos.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="#projetos">Explorar projetos ↗</a>
+        <a class="btn" href="https://github.com/rodrigolf3" target="_blank" rel="noopener noreferrer">Ver GitHub</a>
+      </div>
+    </div>
+
+    <div class="terminal" aria-label="Painel ilustrativo de laboratório de redes">
+      <div class="termbar">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+      <div class="termtext">
+        <div class="dim">// NETWORK LAB · SIMULAÇÃO</div>
+        <div><span class="purple">system</span> --initialize</div>
+        <div class="ok">✓ Interface carregada</div>
+        <div class="ok">✓ Ambiente de laboratório</div>
+        <div><span class="purple">modules</span> --list</div>
+        <div>↳ VLAN / QoS / BGP</div>
+        <div>↳ WAN / LAN / CIDR</div>
+        <div class="dim">status: demonstration_only</div>
+        <div><span class="ok">➜</span> ready_</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="projetos">
+    <div class="eyebrow">01 / Projetos</div>
+    <h2>Projetos em destaque</h2>
+    <p class="lead">
+      Aplicações e ferramentas que conectam programação,
+      infraestrutura e raciocínio técnico.
     </p>
 
-    <h2>Projetos</h2>
-    <div class="card">
-      <h3>Central de Provisioning</h3>
-      <p>
-        Aplicação de apoio ao provisionamento de redes,
-        com fluxos de VLAN, BGP, QoS e alocação de portas.
-      </p>
-      <span class="tag">HTML • CSS • JavaScript • Redes</span>
-      <p>
-        <a href="https://github.com/rodrigolf3/projeto.html">
-          Ver repositório
-        </a>
-      </p>
-    </div>
+    <div class="grid">
+      <article class="card feature">
+        <div class="symbol">⌘</div>
+        <h3>Central de Provisioning</h3>
+        <p>
+          Aplicação de apoio ao provisionamento de redes
+          com assistentes de VLAN, BGP, QoS e alocação de portas.
+          Edição pública demonstrativa em preparação.
+        </p>
+        <div class="tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Redes</span>
+        </div>
+        <p style="margin-top:20px">
+          <a href="https://github.com/rodrigolf3/projeto.html" target="_blank" rel="noopener noreferrer">
+            Ver repositório ↗
+          </a>
+        </p>
+      </article>
 
-    <div class="card">
-      <h3>Calculadora IPv4</h3>
-      <p>Projeto planejado para cálculos de sub-redes e CIDR.</p>
-      <span class="tag">Em planejamento</span>
-    </div>
-  </main>
+      <article class="card">
+        <div class="symbol">◈</div>
+        <h3>Calculadora IPv4</h3>
+        <p>
+          Ferramenta planejada para cálculo de sub-redes,
+          máscaras CIDR e intervalos de endereçamento.
+        </p>
+        <div class="status">Em planejamento</div>
+        <div class="tags" style="margin-top:12px">
+          <span class="tag">IPv4</span>
+          <span class="tag">CIDR</span>
+        </div>
+      </article>
 
-  <footer>Portfólio de Redes e Desenvolvimento</footer>
+      <article class="card">
+        <div class="symbol">⌁</div>
+        <h3>Network CLI Assistant</h3>
+        <p>
+          Assistente planejado para gerar comandos de laboratório
+          por fabricante, seguindo verificação,
+          alteração e validação.
+        </p>
+        <div class="status">Em planejamento</div>
+        <div class="tags" style="margin-top:12px">
+          <span class="tag">CLI</span>
+          <span class="tag">Automation</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap section" id="sobre">
+    <div class="eyebrow">02 / Sobre mim</div>
+    <div class="about">
+      <div>
+        <h2>Entre o código e a infraestrutura.</h2>
+        <p class="lead">
+          Tenho interesse em criar ferramentas que tornam
+          processos técnicos mais claros, organizados e confiáveis.
+          Meu portfólio reúne estudos, protótipos e projetos
+          de software voltados ao universo de redes.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Áreas de interesse</h3>
+        <p>
+          Desenvolvimento de software · Redes TCP/IP ·
+          Automação · Interfaces desktop e web ·
+          Documentação técnica
+        </p>
+        <div class="tags">
+          <span class="tag">Computer Science</span>
+          <span class="tag">Network Operations</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="tecnologias">
+    <div class="eyebrow">03 / Stack</div>
+    <h2>Tecnologias & conhecimentos</h2>
+    <p class="lead">
+      Tecnologias utilizadas em projetos e assuntos em estudo.
+    </p>
+
+    <div class="skills">
+      <div class="skill">HTML · CSS · JavaScript</div>
+      <div class="skill">C# · .NET · WPF (em evolução)</div>
+      <div class="skill">Java · fundamentos de programação</div>
+      <div class="skill">TCP/IP · VLAN · BGP · QoS</div>
+      <div class="skill">GitHub · versionamento</div>
+      <div class="skill">UI/UX · interfaces responsivas</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="year">2026</span> Rodrigo · Portfólio</span>
+    <span>Software × Networks × Automation</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent =
+  new Date().getFullYear();
+</script>
+
 </body>
 </html>
